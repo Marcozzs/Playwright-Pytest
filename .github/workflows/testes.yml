@@ -1,0 +1,29 @@
+# Pipeline de CI: roda os testes E2E automaticamente a cada push e pull request
+name: Testes E2E
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest   # máquina virtual Linux fornecida pelo GitHub
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar o Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Instalar o navegador do Playwright
+        run: playwright install --with-deps chromium
+
+      - name: Rodar os testes
+        run: pytest   # sem --headed: no CI o navegador roda sem interface

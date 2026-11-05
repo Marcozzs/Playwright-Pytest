@@ -1,5 +1,7 @@
 # Automação de Testes E2E (Playwright + Python)
 
+[![Testes E2E](https://github.com/Marcozzs/automacao_teste/actions/workflows/testes.yml/badge.svg)](https://github.com/Marcozzs/automacao_teste/actions/workflows/testes.yml)
+
 **Status:** concluído, com testes de login do Sauce Demo.
 
 Projeto de automação de testes desenvolvido para validar os fluxos de login da página de demonstração [Sauce Demo](https://www.saucedemo.com/), utilizando o padrão **Page Object Model (POM)**.
@@ -11,6 +13,7 @@ Projeto de automação de testes desenvolvido para validar os fluxos de login da
 * **Python**
 * **Playwright** (Automação web)
 * **Pytest** (Framework de execução de testes)
+* **GitHub Actions** (CI: os testes rodam automaticamente a cada push e pull request)
 
 ---
 
@@ -22,6 +25,8 @@ automacao_teste/
 │   └── login_page.py       # Mapeamento de elementos e ações da tela de login
 ├── tests/
 │   └── test_login.py     # Casos de teste automatizados
+├── .github/workflows/
+│   └── testes.yml          # Pipeline de CI no GitHub Actions
 ├── .gitignore              # Arquivos ignorados pelo controle de versão
 ├── pytest.ini              # Configurações do Pytest
 └── requirements.txt        # Dependências do projeto
@@ -57,3 +62,13 @@ Para rodar os testes abrindo o navegador visualmente (--headed) e exibindo as me
 pytest -s --headed
 ```
 ------------------------------------------------------------------------------------------------------------------
+
+## 🔁 Integração Contínua (CI)
+
+A cada `push` na `main` ou abertura de pull request, o GitHub Actions ([`testes.yml`](.github/workflows/testes.yml)):
+1. baixa o código;
+2. instala o Python e as dependências;
+3. instala o navegador do Playwright;
+4. roda o `pytest` em modo headless.
+
+O resultado aparece na aba **Actions** do repositório e no selo no topo deste README.
