@@ -1,7 +1,5 @@
 # Automação de Testes E2E (Playwright + Python)
 
-[![Testes E2E](https://github.com/Marcozzs/automacao_teste/actions/workflows/testes.yml/badge.svg)](https://github.com/Marcozzs/automacao_teste/actions/workflows/testes.yml)
-
 **Status:** concluído, com testes de login do Sauce Demo.
 
 Projeto de automação de testes desenvolvido para validar os fluxos de login da página de demonstração [Sauce Demo](https://www.saucedemo.com/), utilizando o padrão **Page Object Model (POM)**.
